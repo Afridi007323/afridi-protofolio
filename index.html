@@ -1,22 +1,102 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Afridi Ansari | DevOps Engineer</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-
-  <div class="hero">
-    <div class="text">
-      <h1>DevOps Engineer</h1>
-      <p>Building scalable cloud infrastructure and automated CI/CD pipelines.</p>
-    </div>
-
-    <div class="image">
-      <img src="assets/images/profile.jpg" alt="Afridi Ansari">
+  <!-- Navbar -->
+  <div class="nav">
+    <div class="logo">Afridi Ansari</div>
+    <div class="links">
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <a href="https://github.com/Afridi007323" target="_blank">GitHub</a>
     </div>
   </div>
 
+  <!-- Hero -->
+  <div class="hero" id="home">
+    <div class="text">
+      <h2 class="hi">Hi, I'm Afridi Ansari</h2>
+      <h1>DevOps Engineer</h1>
+      <p>Building scalable cloud infrastructure and automated CI/CD pipelines.</p>
+
+      <p class="stack">AWS • Docker • Jenkins • Linux • CI/CD</p>
+
+      <div class="buttons">
+        <a class="btn" href="#projects">View Projects</a>
+        <a class="btn ghost" href="#contact">Contact Me</a>
+      </div>
+    </div>
+
+    <div class="image">
+      <img src="assets/images/profile.jpg" alt="Afridi Ansari" />
+    </div>
+  </div>
+
+  <!-- Projects -->
+  <div class="section" id="projects">
+    <h2>Highlighted Projects</h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Static Portfolio on GitHub Pages</h3>
+        <p>Hosted my portfolio using GitHub Pages with clean structure and responsive UI.</p>
+        <div class="tags">
+          <span>HTML/CSS</span><span>GitHub Pages</span><span>Git</span>
+        </div>
+        <div class="cardbtns">
+          <a class="small" href="https://afridi007323.github.io/afridi-portfolio/" target="_blank">Live</a>
+          <a class="small ghost" href="https://github.com/Afridi007323/afridi-portfolio" target="_blank">Repo</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Server Health Check Script</h3>
+        <p>Bash script to print disk, memory usage, uptime and show warnings based on thresholds.</p>
+        <div class="tags">
+          <span>Bash</span><span>Linux</span><span>Monitoring</span>
+        </div>
+        <div class="cardbtns">
+          <a class="small ghost" href="https://github.com/Afridi007323" target="_blank">Repo</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>CI/CD Demo Pipeline</h3>
+        <p>Simple CI/CD pipeline idea: build → test → deploy. Shows automation mindset.</p>
+        <div class="tags">
+          <span>CI/CD</span><span>Jenkins</span><span>GitHub</span>
+        </div>
+        <div class="cardbtns">
+          <a class="small ghost" href="https://github.com/Afridi007323" target="_blank">Repo</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <div class="section" id="contact">
+    <h2>Contact</h2>
+    <p class="muted">Typical response: within 24 hours • Preferred: Email / LinkedIn</p>
+
+    <div class="contactBox">
+      <a class="btn" href="mailto:mkmahesh7890@gmail.com">Email Me</a>
+      <a class="btn ghost" href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/Afridi007323" target="_blank">GitHub</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    © <span id="y"></span> Afridi Ansari • Built with HTML/CSS • Hosted on GitHub Pages
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
