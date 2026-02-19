@@ -1,1 +1,492 @@
-the software are using to all user
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ansari Afridi | DevOps Engineer</title>
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#101a2e;
+      --card2:#0e1730;
+      --text:#e6e9f2;
+      --muted:#a6b0c3;
+      --accent:#7c5cff;
+      --accent2:#22c55e;
+      --line:rgba(255,255,255,.08);
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius:18px;
+      --max:1100px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 20% 0%, rgba(124,92,255,.22), transparent 60%),
+                  radial-gradient(900px 500px at 100% 10%, rgba(34,197,94,.18), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:auto; padding:24px}
+    .pill{
+      display:inline-flex; gap:10px; align-items:center;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      padding:10px 14px; border-radius:999px;
+      color:var(--muted);
+      backdrop-filter: blur(10px);
+    }
+    .dot{width:8px;height:8px;border-radius:99px;background:var(--accent2);box-shadow:0 0 0 6px rgba(34,197,94,.15)}
+
+    /* NAV */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      background: rgba(11,18,32,.7);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{
+      max-width:var(--max);
+      margin:auto;
+      padding:14px 24px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:800; letter-spacing:.4px;
+    }
+    .logo{
+      width:34px; height:34px; border-radius:12px;
+      background: linear-gradient(135deg, var(--accent), #3b82f6);
+      box-shadow: 0 10px 30px rgba(124,92,255,.35);
+    }
+    .nav a.link{
+      color:var(--muted);
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid transparent;
+    }
+    .nav a.link:hover{
+      color:var(--text);
+      border-color:var(--line);
+      background:rgba(255,255,255,.04);
+    }
+    .nav-right{display:flex; gap:6px; align-items:center; flex-wrap:wrap}
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color:var(--text);
+      font-weight:600;
+      cursor:pointer;
+      transition:.2s;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.07)}
+    .btn.primary{
+      border-color: rgba(124,92,255,.4);
+      background: linear-gradient(135deg, rgba(124,92,255,.95), rgba(59,130,246,.85));
+      box-shadow: 0 14px 40px rgba(124,92,255,.25);
+    }
+
+    /* HERO */
+    .hero{
+      padding: 42px 0 26px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:22px;
+      align-items:stretch;
+    }
+    .card{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:22px;
+    }
+    .title{
+      font-size: clamp(28px, 4vw, 44px);
+      line-height:1.1;
+      margin:14px 0 10px;
+      letter-spacing:-.6px;
+    }
+    .subtitle{
+      color:var(--muted);
+      font-size: 16px;
+      max-width: 60ch;
+      margin: 0 0 18px;
+    }
+    .actions{display:flex; gap:10px; flex-wrap:wrap}
+    .stats{
+      display:grid; gap:12px;
+      grid-template-columns: 1fr 1fr;
+      margin-top:18px;
+    }
+    .stat{
+      border:1px solid var(--line);
+      background: rgba(16,26,46,.65);
+      border-radius:16px;
+      padding:14px;
+    }
+    .stat b{display:block; font-size:18px}
+    .stat span{color:var(--muted); font-size:13px}
+
+    /* Right card */
+    .profile{
+      display:flex; flex-direction:column; gap:14px; height:100%;
+      background: linear-gradient(180deg, rgba(16,26,46,.85), rgba(14,23,48,.75));
+    }
+    .avatar{
+      width:64px; height:64px; border-radius:18px;
+      background: linear-gradient(135deg, rgba(34,197,94,.95), rgba(124,92,255,.85));
+      box-shadow: 0 16px 40px rgba(34,197,94,.18);
+    }
+    .row{display:flex; align-items:center; justify-content:space-between; gap:12px}
+    .kv{
+      border-top:1px solid var(--line);
+      padding-top:12px;
+      display:grid;
+      gap:10px;
+    }
+    .kv div{display:flex; justify-content:space-between; gap:10px}
+    .kv .k{color:var(--muted)}
+    .kv .v{font-weight:600}
+    .badges{display:flex; gap:8px; flex-wrap:wrap}
+    .badge{
+      font-size:12px;
+      color: var(--muted);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      padding:8px 10px;
+      border-radius:999px;
+    }
+
+    /* SECTIONS */
+    section{padding: 18px 0}
+    .section-title{
+      font-size: 18px;
+      margin: 0 0 12px;
+      color: rgba(230,233,242,.95);
+      letter-spacing:.2px;
+    }
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3,1fr);
+      gap:14px;
+    }
+    .mini{
+      border:1px solid var(--line);
+      background: rgba(16,26,46,.55);
+      border-radius:16px;
+      padding:16px;
+      transition:.2s;
+    }
+    .mini:hover{transform: translateY(-2px); background: rgba(16,26,46,.75)}
+    .mini h4{margin:0 0 6px; font-size:15px}
+    .mini p{margin:0; color:var(--muted); font-size:13px}
+
+    /* PROJECTS */
+    .projects{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    .project{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(16,26,46,.7), rgba(14,23,48,.55));
+      border-radius:18px;
+      padding:18px;
+    }
+    .project .top{display:flex; justify-content:space-between; align-items:flex-start; gap:10px}
+    .project h3{margin:0; font-size:16px}
+    .project p{margin:10px 0 14px; color:var(--muted); font-size:13px}
+    .tags{display:flex; gap:8px; flex-wrap:wrap}
+    .tag{
+      font-size:12px;
+      border:1px solid rgba(124,92,255,.35);
+      background: rgba(124,92,255,.10);
+      color: rgba(230,233,242,.95);
+      padding:7px 10px;
+      border-radius:999px;
+    }
+    .tag.green{
+      border-color: rgba(34,197,94,.35);
+      background: rgba(34,197,94,.10);
+    }
+    .project a{color:#cbd5ff}
+    .project a:hover{text-decoration:underline}
+
+    /* CONTACT */
+    .contact{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:14px;
+    }
+    .input{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      outline:none;
+    }
+    textarea.input{min-height:120px; resize:vertical}
+
+    footer{
+      border-top:1px solid var(--line);
+      margin-top: 24px;
+      padding:18px 0 8px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .projects{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
+      .nav-inner{padding:12px 14px}
+      .wrap{padding:18px 14px}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="logo"></div>
+        <div>Ansari Afridi</div>
+      </div>
+
+      <div class="nav-right">
+        <a class="link" href="#skills">Skills</a>
+        <a class="link" href="#projects">Projects</a>
+        <a class="link" href="#contact">Contact</a>
+        <a class="btn" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="btn primary" href="#projects">View Work</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero-grid">
+        <div class="card">
+          <div class="pill"><span class="dot"></span> Available for DevOps / Cloud roles</div>
+          <h1 class="title">DevOps Engineer who builds reliable CI/CD, Docker & Cloud deployments.</h1>
+          <p class="subtitle">
+            I’m <b>Afridi Ansari</b> from Nashik, Maharashtra. I create deployable projects using
+            <b>AWS</b>, <b>Linux</b>, <b>Docker</b>, <b>Git</b>, <b>Jenkins</b>, and automation scripts.
+          </p>
+
+          <div class="actions">
+            <a class="btn primary" href="#contact">Hire / Message Me</a>
+            <a class="btn" href="#projects">See Projects</a>
+            <a class="btn" href="mailto:yourmail@example.com">Email</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat"><b>CI/CD</b><span>Jenkins pipelines, GitHub flow</span></div>
+            <div class="stat"><b>Containers</b><span>Docker build, run, compose</span></div>
+            <div class="stat"><b>AWS</b><span>EC2, S3 static hosting, IAM basics</span></div>
+            <div class="stat"><b>Linux</b><span>Users, permissions, scripts</span></div>
+          </div>
+        </div>
+
+        <div class="card profile">
+          <div class="row">
+            <div style="display:flex; gap:12px; align-items:center;">
+              <div class="avatar"></div>
+              <div>
+                <div style="font-weight:800; font-size:16px;">Afridi Ansari</div>
+                <div style="color:var(--muted); font-size:13px;">DevOps Engineer • Nashik, IN</div>
+              </div>
+            </div>
+            <span class="badge">Open to Work</span>
+          </div>
+
+          <div class="badges">
+            <span class="badge">AWS</span>
+            <span class="badge">Docker</span>
+            <span class="badge">Linux</span>
+            <span class="badge">Git</span>
+            <span class="badge">Jenkins</span>
+            <span class="badge">Shell</span>
+          </div>
+
+          <div class="kv">
+            <div><span class="k">Experience</span><span class="v">Fresher / 0–1 yr</span></div>
+            <div><span class="k">Strength</span><span class="v">Deployment + Automation</span></div>
+            <div><span class="k">Portfolio</span><span class="v"><a href="#" onclick="return false;">Live demo ready</a></span></div>
+          </div>
+
+          <div style="margin-top:auto; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn" href="#skills">Skills</a>
+            <a class="btn" href="#projects">Projects</a>
+            <a class="btn" href="#contact">Contact</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2 class="section-title">Core Skills</h2>
+      <div class="grid-3">
+        <div class="mini">
+          <h4>Linux & Shell</h4>
+          <p>Users, permissions, services, log checking, scripts for health checks and automation.</p>
+        </div>
+        <div class="mini">
+          <h4>Docker & Containers</h4>
+          <p>Build images, run containers, Docker Compose, basic troubleshooting & cleanup.</p>
+        </div>
+        <div class="mini">
+          <h4>CI/CD</h4>
+          <p>Jenkins pipeline basics, GitHub repo integration, build-test-deploy style flow.</p>
+        </div>
+        <div class="mini">
+          <h4>AWS Basics</h4>
+          <p>EC2 deployment, Security Groups, S3 static hosting, cost-safe practices.</p>
+        </div>
+        <div class="mini">
+          <h4>Git & GitHub</h4>
+          <p>Clone, branch, commit, push, PR basics. Maintain clean repo structure.</p>
+        </div>
+        <div class="mini">
+          <h4>Monitoring (Basic)</h4>
+          <p>Uptime, disk/memory usage checks, logs reading, simple alert-style scripts.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2 class="section-title">Highlighted Projects</h2>
+
+      <div class="projects">
+        <div class="project">
+          <div class="top">
+            <h3>Static Portfolio on AWS S3</h3>
+            <span class="badge">Live</span>
+          </div>
+          <p>Hosted a responsive portfolio as a static website using S3 website hosting with clean folder structure.</p>
+          <div class="tags">
+            <span class="tag">AWS S3</span>
+            <span class="tag green">HTML/CSS</span>
+            <span class="tag">Cloud Hosting</span>
+          </div>
+          <p style="margin:12px 0 0;">
+            Demo: <a href="https://afridi-portfolio-2026.s3-website.ap-south-1.amazonaws.com/" target="_blank" rel="noreferrer">
+              afridi-portfolio-2026
+            </a>
+          </p>
+        </div>
+
+        <div class="project">
+          <div class="top">
+            <h3>Server Health Check Script</h3>
+            <span class="badge">Automation</span>
+          </div>
+          <p>Bash script that prints disk, memory usage, uptime, and gives warnings based on thresholds.</p>
+          <div class="tags">
+            <span class="tag green">Bash</span>
+            <span class="tag">Linux</span>
+            <span class="tag">Monitoring</span>
+          </div>
+          <p style="margin:12px 0 0;">
+            Repo: <a href="https://github.com/" target="_blank" rel="noreferrer">github.com/your-repo</a>
+          </p>
+        </div>
+
+        <div class="project">
+          <div class="top">
+            <h3>CI/CD Demo Pipeline</h3>
+            <span class="badge">Jenkins</span>
+          </div>
+          <p>Build → Test → Deploy flow for a simple web app. Shows pipeline stages and basic automation.</p>
+          <div class="tags">
+            <span class="tag">Jenkins</span>
+            <span class="tag">GitHub</span>
+            <span class="tag green">CI/CD</span>
+          </div>
+          <p style="margin:12px 0 0;">
+            Notes: <a href="#" onclick="return false;">Add screenshots + README</a>
+          </p>
+        </div>
+
+        <div class="project">
+          <div class="top">
+            <h3>Dockerized Web App</h3>
+            <span class="badge">Container</span>
+          </div>
+          <p>Run a small site/app inside Docker with a Dockerfile and optional Compose setup.</p>
+          <div class="tags">
+            <span class="tag">Docker</span>
+            <span class="tag green">Deploy</span>
+            <span class="tag">DevOps</span>
+          </div>
+          <p style="margin:12px 0 0;">
+            Repo: <a href="https://github.com/" target="_blank" rel="noreferrer">github.com/your-repo</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <div class="contact">
+        <div class="card" style="box-shadow:none;">
+          <p style="margin-top:0; color:var(--muted)">
+            Quick message template (copy-paste):
+          </p>
+          <textarea class="input" readonly>Hello, I’m Afridi Ansari (DevOps). I’m interested in opportunities. Please share the process / interview details. Thank you.</textarea>
+          <div style="display:flex; gap:10px; margin-top:12px; flex-wrap:wrap;">
+            <a class="btn primary" href="mailto:yourmail@example.com">Email Me</a>
+            <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="btn" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </div>
+
+        <div class="card" style="box-shadow:none;">
+          <h3 style="margin:0 0 10px; font-size:16px;">Details</h3>
+          <div class="kv" style="border-top:none; padding-top:0;">
+            <div><span class="k">Location</span><span class="v">Nashik, Maharashtra</span></div>
+            <div><span class="k">Role</span><span class="v">DevOps Engineer</span></div>
+            <div><span class="k">Stack</span><span class="v">AWS • Linux • Docker</span></div>
+          </div>
+          <div style="margin-top:14px;">
+            <div class="pill"><span class="dot"></span> Reply fast on WhatsApp/Email</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="y"></span> Afridi Ansari • Built with HTML + CSS • DevOps Portfolio
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
