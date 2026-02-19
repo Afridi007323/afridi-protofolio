@@ -52,7 +52,9 @@ body{
   padding: 80px 60px;
   max-width: 1100px;
   margin: 0 auto;
+  flex-wrap: wrap;
 }
+
 
 
 
@@ -194,10 +196,17 @@ body{
 
 .tags span{
   font-size:12px;
-  padding: 6px 10px;
-  border-radius: 999px;
+  padding:6px 12px;
+  border-radius:999px;
   border:1px solid var(--line);
-  color: rgba(255,255,255,.9);
+  background: rgba(255,255,255,0.05);
+  color:#e2e8f0;
+  transition: all 0.3s ease;
+}
+.tags span:hover{
+  background: var(--accent);
+  color:#05111a;
+  transform: translateY(-2px);
 }
 
 #skills .tags span{
@@ -228,12 +237,16 @@ body{
 }
 
 /* Better hero spacing (optional) */
-.hero{
-  padding: 80px 60px;
-}
+
 
 /* Skills section spacing */
-#skills{ margin-top: 60px; }
+
+
+
+#skills{
+  text-align:center;
+}
+
 
 
 
@@ -246,4 +259,8 @@ body{
 .reveal.show{
   opacity: 1;
   transform: translateY(0);
+}
+
+#skills .tags{
+  justify-content:center;
 }
