@@ -40,7 +40,8 @@
       <img src="assets/images/profile.jpg" alt="Afridi Ansari" />
     </div>
   </div>
-  <div class="section" id="skills">
+  <div class="section reveal" id="skills">
+
   <h2>Core Skills</h2>
   <div class="tags">
     <span>AWS (EC2, S3, IAM)</span>
@@ -56,7 +57,8 @@
 
 
   <!-- Projects -->
-  <div class="section" id="projects">
+  <div class="section reveal" id="projects">
+
     <h2>Highlighted Projects</h2>
 
     <div class="cards">
@@ -97,7 +99,8 @@
   </div>
 
   <!-- Contact -->
-  <div class="section" id="contact">
+  <div class="section reveal" id="contact">
+
     <h2>Contact</h2>
     <p class="muted">Typical response: within 24 hours • Preferred: Email / LinkedIn</p>
 
@@ -114,8 +117,22 @@
     © <span id="y"></span> Afridi Ansari • Built with HTML/CSS • Hosted on GitHub Pages
   </div>
 
+  
   <script>
+
     document.getElementById("y").textContent = new Date().getFullYear();
   </script>
+
+  <script>
+    const items = document.querySelectorAll(".reveal");
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add("show");
+      });
+    }, { threshold: 0.15 });
+
+    items.forEach(i => io.observe(i));
+  </script>
+
 </body>
 </html>
